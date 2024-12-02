@@ -28,12 +28,12 @@ has_many :purchases
 | description       | text         | NOT NULL                       |
 | price             | INTEGER(10,2)| NOT NULL                       |
 | stock             | INTEGER      | NOT NULL, DEFAULT 0             |
-| user         | INTEGER      | FOREIGN KEY, NOT NULL          |
-| category          | references  | NOT NULL                       |
-| condition         | references  | NOT NULL                       |
-| shipping_fee_payer| references  | NOT NULL                       |
-| prefecture_id   | references  | NOT NULL                       |
-| shipping_day     | STRING  | NOT NULL                       |
+| user_id         | INTEGER      | FOREIGN KEY, NOT NULL          |
+| category_id          | INTEGER  | NOT NULL                       |
+| condition_id         | INTEGER  | NOT NULL                       |
+| shipping_fee_payer_id| INTEGER  | NOT NULL                       |
+| prefecture_id   | INTEGER  | NOT NULL                       |
+| shipping_day_id     | INTEGER  | NOT NULL                       |
 
 # | created_at        | DATETIME     | DEFAULT CURRENT_TIMESTAMP      |
 # | updated_at        | DATETIME     | DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP |
@@ -49,8 +49,6 @@ has_one :purchase
 
 | user_id             | INTEGER      | FOREIGN KEY, NOT NULL          |
 | product_id          | INTEGER      | FOREIGN KEY, UNIQUE, NOT NULL  |
-| purchase_date       | DATETIME     | DEFAULT CURRENT_TIMESTAMP      |
-| shipping_address_id | INTEGER      | FOREIGN KEY, NOT NULL          |
 
 ### Association
 belongs_to :user
@@ -65,11 +63,10 @@ has_one :shipping_address
 
 | purchase    | references      | FOREIGN KEY, NOT NULL          |
 | postal_code    | STRING  | NOT NULL                       |
-| prefecture     |   | NOT NULL                       |
+| prefecture_id     |  INTEGER | NOT NULL                       |
 | city           | STRING | NOT NULL                       |
 | address_line1  | STRING | NOT NULL                       |
 | address_line2  |STRING |                                |
-| recipient_name | STRING | NOT NULL                       |
 | phone_number   | STRING  | NOT NULL |
 
 ### Association
