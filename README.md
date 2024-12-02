@@ -27,7 +27,6 @@ has_many :purchases
 | name              | STRING | NOT NULL                       |
 | description       | text         | NOT NULL                       |
 | price             | INTEGER(10,2)| NOT NULL                       |
-| stock             | INTEGER      | NOT NULL, DEFAULT 0             |
 | user_id         | INTEGER      | FOREIGN KEY, NOT NULL          |
 | category_id          | INTEGER  | NOT NULL                       |
 | condition_id         | INTEGER  | NOT NULL                       |
@@ -46,9 +45,8 @@ has_one :purchase
 
 | Column              | Type         | Options                        |
 |---------------------|--------------|--------------------------------|
-
 | user_id             | INTEGER      | FOREIGN KEY, NOT NULL          |
-| product_id          | INTEGER      | FOREIGN KEY, UNIQUE, NOT NULL  |
+| product_id          | INTEGER      | FOREIGN KEY, NOT NULL  |
 
 ### Association
 belongs_to :user
@@ -71,31 +69,3 @@ has_one :shipping_address
 
 ### Association
 belongs_to :purchase
-
-
-
-
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
