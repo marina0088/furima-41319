@@ -27,15 +27,13 @@ has_many :purchases
 | name              | STRING | NOT NULL                       |
 | description       | text         | NOT NULL                       |
 | price             | INTEGER(10,2)| NOT NULL                       |
-| user_id         | INTEGER      | FOREIGN KEY, NOT NULL          |
+| user         | references      | FOREIGN KEY, NOT NULL          |
 | category_id          | INTEGER  | NOT NULL                       |
 | condition_id         | INTEGER  | NOT NULL                       |
 | shipping_fee_payer_id| INTEGER  | NOT NULL                       |
 | prefecture_id   | INTEGER  | NOT NULL                       |
 | shipping_day_id     | INTEGER  | NOT NULL                       |
 
-# | created_at        | DATETIME     | DEFAULT CURRENT_TIMESTAMP      |
-# | updated_at        | DATETIME     | DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP |
 
 ### Association
 belongs_to :user, foreign_key: :seller_id
@@ -45,8 +43,8 @@ has_one :purchase
 
 | Column              | Type         | Options                        |
 |---------------------|--------------|--------------------------------|
-| user_id             | INTEGER      | FOREIGN KEY, NOT NULL          |
-| product_id          | INTEGER      | FOREIGN KEY, NOT NULL  |
+| user            | references      | FOREIGN KEY, NOT NULL          |
+| product          | references      | FOREIGN KEY, NOT NULL  |
 
 ### Association
 belongs_to :user
